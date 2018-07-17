@@ -10,6 +10,7 @@ if(localStorage.getItem('name')) {
 }
 
 document.querySelector("img[alt]").style.color = 'green';
+document.querySelector(".signLabel").style.color = 'red';
 
 var myImage = document.querySelector('img');
 var timerFlag = null;
