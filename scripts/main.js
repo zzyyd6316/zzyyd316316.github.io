@@ -1,5 +1,7 @@
 
-
+/*
+景区展示
+ */
 var myHeading = document.querySelector('h1');
 var fengjingTitle = document.querySelector('h2');
 
@@ -7,18 +9,7 @@ if(localStorage.getItem('name')) {
     fengjingTitle.textContent = '';
 }
 
-// var myImage = document.querySelector('img');
-// myImage.onclick = function() {
-//     var mySrc = myImage.getAttribute('src');
-//     if (mySrc == 'http://pic2.ooopic.com/12/42/25/02bOOOPIC95_1024.jpg') {
-//       myImage.setAttribute('src', 'http://pic21.photophoto.cn/20111106/0020032891433708_b.jpg');
-//       fengjingTitle.textContent = '风景1--孝姑';
-//     }else {
-//       myImage.setAttribute('src', 'http://pic2.ooopic.com/12/42/25/02bOOOPIC95_1024.jpg')
-//       fengjingTitle.textContent = '风景2--八一村';
-//     }
-    
-// }
+document.querySelector("img[alt]").style.color = 'green';
 
 var myImage = document.querySelector('img');
 var timerFlag = null;
@@ -65,3 +56,41 @@ if(!localStorage.getItem('name')) {
   myHeading.textContent = '你好！' + storedName + ' 欢迎来到犍为县孝姑镇!';;
   startPicShow();
 }
+
+
+
+/*
+签名
+ */
+
+var list = document.querySelector('.output ul');
+var searchInput = document.querySelector('.output input');
+var searchBtn = document.querySelector('.output button');
+
+list.innerHTML = '';
+
+var myHistory= [];
+
+searchBtn.onclick = function() {
+  if(searchInput.value !== '') {
+    if (searchInput.value.length > 0) {
+      myHistory.unshift(searchInput.value);
+
+    list.innerHTML = '';
+
+    for(var i = 0; i < myHistory.length; i++) {
+     var itemText = myHistory[i];
+      var listItem = document.createElement('li');
+      listItem.textContent = itemText;
+      list.appendChild(listItem);
+    }
+
+    if(myHistory.length >= 5) {
+      myHistory.pop();
+    }
+
+    searchInput.value = '';
+    searchInput.focus();
+    }
+  }
+} 
