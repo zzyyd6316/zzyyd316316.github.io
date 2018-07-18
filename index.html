@@ -10,11 +10,12 @@
   	<h1>
   		欢迎来到犍为县孝姑镇!
   	</h1>
+    <div id="timeText"></div><br>
     <button>Login</button>
   	<h2>
   		输入您的名字，即可开始您的旅行......
   	</h2>
-    <img src="" alt="精彩从这里开始～" title="孝姑"/><br>
+    <img id="image" src="" alt="精彩从这里开始～" title="孝姑"/><br>
     <div class="output" style="min-height: 150px;">
       <p class="signLabel" >到此一游 签名墙～</p>
       <input type="text"><button>请留下您的大名</button>
@@ -22,6 +23,31 @@
       
       </ul>
     </div>
+    
+    <button id="Animation">点击这里，使三个矩形淡出</button>
+    <br><br>
+    <div id="div1" style="width:280px;height:40px;background-color:red;"></div>
+    <br>
+    <div id="div2" style="width:280px;height:40px;background-color:green;"></div>
+    <br>
+    <div id="div3" style="width:280px;height:40px;background-color:blue;"></div>
+    <br><br>
+
+    <!-- 关键：main.js文件不需要引用jquery.js文件，只需要在相应的html网页中引用jquery.js和main.js文件，jquery文件引用必须在main.js文件之前。这样main.js就可以使用jquery库了 -->
+    <!-- jquery库下载地址：http://jquery.com/download/ -->
+    <script src="scripts/jquery-3.3.1.min.js"></script>
     <script src="scripts/main.js"></script>
+    
+    <!-- <script type="text/javascript">
+      $(document).ready(function(){
+        $("#Animation").click(function(){
+          $("#div1").fadeOut(1500);
+          // $("#div2").fadeOut("slow");
+          $("#div2").fadeOut(3000);
+          $("#div3").fadeOut(4500);
+        });
+      });
+    </script> -->
+
   </body>
 </html>

@@ -1,9 +1,52 @@
+/*
+  导入jQuery
+ */
 
+$(document).ready(function(){
+  $("#Animation").click(function(){
+    $("#div1").fadeOut(1500);
+    $("#div2").fadeOut(3000);
+    $("#div3").fadeOut(4500);
+    $("#Animation").hide();
+  });
+});
+
+/*
+  时间
+ */
+
+function checkTime(value){
+  if (value < 10) {
+    value = "0" + value;
+  }
+  return value;
+}
+
+function showTime(){
+  var nowTime = new Date();
+  var year = nowTime.getFullYear();
+  var month = nowTime.getMonth();
+  var day = nowTime.getDay();
+  var hour = nowTime.getHours();
+  var minute = nowTime.getMinutes();
+  var second = nowTime.getSeconds();
+
+  hour = checkTime(hour);
+  minute = checkTime(minute);
+  second = checkTime(second);
+  var timeStr = year + '年' + month + '月' + day + '日 ' + hour + ':' + minute + ':' + second;
+  document.getElementById('timeText').innerHTML = timeStr;
+  setTimeout('showTime()', 1000);
+}
+
+showTime();
 /*
 景区展示
  */
 var myHeading = document.querySelector('h1');
 var fengjingTitle = document.querySelector('h2');
+// document.getElementById("image").title.color = 'green';
+document.getElementById("image").style.color="blue";
 
 if(localStorage.getItem('name')) {
     fengjingTitle.textContent = '';
@@ -15,7 +58,7 @@ document.querySelector(".signLabel").style.color = 'red';
 var myImage = document.querySelector('img');
 var timerFlag = null;
 var picIndex = 0; 
-var maxIndex = 4;
+var maxIndex = 5;
 
 function showImg(){
   picIndex = picIndex + 1;
