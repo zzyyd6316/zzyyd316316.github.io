@@ -114,6 +114,8 @@ if(!localStorage.getItem('name')) {
 var list = document.querySelector('.output ul');
 var searchInput = document.querySelector('.output input');
 var searchBtn = document.querySelector('.output button');
+var myCookieIsOk = 0;
+var maxSignCount = 8;
 
 list.innerHTML = '';
 var myHistory= [];
@@ -128,11 +130,22 @@ function writeSign() {
     }
 }
 
+// 判断如果 cookie不可用那么就采用localStorage
 var myCookie = $.cookie('mySignCookie');
 if (myCookie) {
+  myCookieIsOk = true;
   myHistory = JSON.parse(myCookie);
   if (myHistory.length > 0) {
     writeSign();
+  }
+}else {
+  myCookieIsOk = false;
+  var storedSign = localStorage.getItem('mySignCookie');
+  if (storedSign){
+    myHistory = JSON.parse(storedSign);
+    if (myHistory.length > 0) {
+      writeSign();
+    }
   }
 }
 
@@ -140,21 +153,18 @@ if (myCookie) {
 searchBtn.onclick = function() {
   if (searchInput.value.length > 0) {
     myHistory.unshift(searchInput.value);
+    if(myHistory.length > maxSignCount) {
+        myHistory.pop();
+    }
     writeSign();
-
-    if(myHistory.length > 5) {
-      myHistory.pop();
-    }
-
     var objString = JSON.stringify(myHistory);
-    $.cookie('mySignCookie', objString, {
-    expires:7,  
-    domain:'github.com',
-    path:'/',
-    secure:false
-});
-
-    searchInput.value = '';
-    searchInput.focus();
+    if (myCookieIsOk && objString.length > 0) {
+      $.cookie('mySignCookie', objString,{expires:7,  domain:'localhost',path:'/',secure:false});
+    }else {
+      localStorage.setItem("mySignCookie", objString);
     }
+    searchInput.value = '';
+    searchInput.focus();   
+      
+  } 
 } 
