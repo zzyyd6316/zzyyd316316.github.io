@@ -149,7 +149,7 @@ searchBtn.onclick = function() {
     var objString = JSON.stringify(myHistory);
     $.cookie('mySignCookie', objString, {
     expires:7,  
-    domain:'zzyyd316316.github.io',
+    domain:'zzyyd6316.github.io/zzyyd316316.github.io',
     path:'/',
     secure:false
 });
