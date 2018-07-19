@@ -10,7 +10,12 @@ $(document).ready(function(){
     $("#Animation").hide();
   });
 });
-
+var obj = [
+             {"name":"Tom","age":13},
+             {"name":"Jack","age":14},
+             {"name":"Mary","age":16},
+           ]
+ var objString = JSON.stringify(obj); //JSON 数据转化成字符串
 /*
   时间
  */
@@ -112,18 +117,19 @@ var searchInput = document.querySelector('.output input');
 var searchBtn = document.querySelector('.output button');
 
 list.innerHTML = '';
-
 var myHistory= [];
+var myCookie = $.cookie('mySignCookie');
+if (myCookie) {
+  myHistory = JSON.parse(myCookie);
+}
+
 
 searchBtn.onclick = function() {
-  if(searchInput.value !== '') {
-    if (searchInput.value.length > 0) {
-      myHistory.unshift(searchInput.value);
-
+  if (searchInput.value.length > 0) {
+    myHistory.unshift(searchInput.value);
     list.innerHTML = '';
-
     for(var i = 0; i < myHistory.length; i++) {
-     var itemText = myHistory[i];
+      var itemText = myHistory[i];
       var listItem = document.createElement('li');
       listItem.textContent = itemText;
       list.appendChild(listItem);
@@ -133,8 +139,15 @@ searchBtn.onclick = function() {
       myHistory.pop();
     }
 
+    var objString = JSON.stringify(myHistory);
+    $.cookie('mySignCookie', objString, {
+    expires:7,  
+    domain:'zzyyd316316.github.io',
+    path:'/',
+    secure:false
+});
+
     searchInput.value = '';
     searchInput.focus();
     }
-  }
 } 
