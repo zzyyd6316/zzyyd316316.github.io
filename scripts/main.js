@@ -111,31 +111,38 @@ if(!localStorage.getItem('name')) {
 /*
 签名
  */
-
 var list = document.querySelector('.output ul');
 var searchInput = document.querySelector('.output input');
 var searchBtn = document.querySelector('.output button');
 
 list.innerHTML = '';
 var myHistory= [];
-var myCookie = $.cookie('mySignCookie');
-if (myCookie) {
-  myHistory = JSON.parse(myCookie);
-}
 
-
-searchBtn.onclick = function() {
-  if (searchInput.value.length > 0) {
-    myHistory.unshift(searchInput.value);
-    list.innerHTML = '';
+function writeSign() {
+  list.innerHTML = '';
     for(var i = 0; i < myHistory.length; i++) {
       var itemText = myHistory[i];
       var listItem = document.createElement('li');
       listItem.textContent = itemText;
       list.appendChild(listItem);
     }
+}
 
-    if(myHistory.length >= 5) {
+var myCookie = $.cookie('mySignCookie');
+if (myCookie) {
+  myHistory = JSON.parse(myCookie);
+  if (myHistory.length > 0) {
+    writeSign();
+  }
+}
+
+
+searchBtn.onclick = function() {
+  if (searchInput.value.length > 0) {
+    myHistory.unshift(searchInput.value);
+    writeSign();
+
+    if(myHistory.length > 5) {
       myHistory.pop();
     }
 
