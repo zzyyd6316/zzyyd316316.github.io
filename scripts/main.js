@@ -1,5 +1,5 @@
 /*
-  导入jQuery
+  底部动画
  */
 
 $(document).ready(function(){
@@ -30,8 +30,8 @@ function checkTime(value){
 function showTime(){
   var nowTime = new Date();
   var year = nowTime.getFullYear();
-  var month = nowTime.getMonth();
-  var day = nowTime.getDay();
+  var month = nowTime.getMonth() +1;
+  var day = nowTime.getDate();
   var hour = nowTime.getHours();
   var minute = nowTime.getMinutes();
   var second = nowTime.getSeconds();
@@ -46,7 +46,7 @@ function showTime(){
 
 showTime();
 /*
-景区展示
+景点展示
  */
 var myHeading = document.querySelector('h1');
 var fengjingTitle = document.querySelector('h2');
@@ -159,6 +159,7 @@ searchBtn.onclick = function() {
     writeSign();
     var objString = JSON.stringify(myHistory);
     if (myCookieIsOk && objString.length > 0) {
+      //采用本地localhost的方式实施cookie
       $.cookie('mySignCookie', objString,{expires:7,  domain:'localhost',path:'/',secure:false});
     }else {
       localStorage.setItem("mySignCookie", objString);
