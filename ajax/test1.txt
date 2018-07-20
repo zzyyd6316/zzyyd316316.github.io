@@ -1,0 +1,29 @@
+1.RN中文网
+https://reactnative.cn/docs/0.51/state.html#content
+
+2.幕课学习网
+https://www.imooc.com/code/97
+
+3.JS&web学习
+https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web
+
+3.w3school学习
+http://www.w3school.com.cn/js/js_cookies.asp
+http://www.w3school.com.cn/jsref/dom_obj_datetime-local.asp
+http://www.w3school.com.cn/jquery/jquery_ref_manipulation.asp
+4.ajax教程
+http://www.w3school.com.cn/ajax/index.asp
+
+
+4.脚本安装bew的命令（https://blog.csdn.net/qq_35624642/article/details/79682979）
+1）下载脚本
+cd /Users/zzy/Desktop
+curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install >> brew_install
+
+2）修改脚本里面的镜像
+
+3）运行脚本
+/usr/bin/ruby brew_install
+
+5.用python在本地搭建web服务器。比如用于测试cookie
+python -m SimpleHTTPServer 
