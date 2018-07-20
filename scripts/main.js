@@ -1,21 +1,4 @@
-/*
-  底部动画
- */
 
-$(document).ready(function(){
-  $("#Animation").click(function(){
-    $("#div1").fadeOut(1500);
-    $("#div2").fadeOut(3000);
-    $("#div3").fadeOut(4500);
-    $("#Animation").hide();
-  });
-});
-var obj = [
-             {"name":"Tom","age":13},
-             {"name":"Jack","age":14},
-             {"name":"Mary","age":16},
-           ]
- var objString = JSON.stringify(obj); //JSON 数据转化成字符串
 /*
   时间
  */
@@ -93,7 +76,7 @@ function setUserName() {
   }
 }
 
-var myButton = document.querySelector('button');
+var myButton = document.getElementById('Login');
 myButton.onclick = function() {
   setUserName();
 }
@@ -169,6 +152,19 @@ searchBtn.onclick = function() {
       
   } 
 } 
+
+/*
+  底部动画
+ */
+
+$(document).ready(function(){
+  $("#Animation").click(function(){
+    $("#div1").fadeOut(1500);
+    $("#div2").fadeOut(3000);
+    $("#div3").fadeOut(4500);
+    $("#Animation").hide();
+  });
+});
 
 /*
 请求

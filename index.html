@@ -5,26 +5,41 @@
     <meta charset="utf-8">
     <title>孝姑景点介绍</title>
     <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+    <style type="text/css">
+      
+    </style>
   </head>
   <body>
   	<h1>
   		欢迎来到犍为县孝姑镇!
   	</h1>
     <div id="timeText"></div><br>
-    <button>Login</button>
+    <div style="width:120px;" data-role="content">
+      <button id="Login" data-role="button" data-icon="gear">登录</button><br>
+    </div>
   	<h2>
   		输入您的名字，即可开始您的旅行......
   	</h2>
 
     <img id="image" src="" alt="精彩从这里开始～" title="孝姑"/><br>
 
-    <div class="output" style="min-height: 150px;">
+    <div class="output">
       <p class="signLabel" >到此一游 签名墙～</p>
-      <input type="text"><button>请留下您的大名</button>
+      <div style="width:400px" >
+        <input type="text">
+      </div>
+      <div style="width:200px" >
+        <button style="width:200px;">留名</button>
+      </div>
       <ul></ul>
     </div>
     
-    <button id="Animation">点击这里，使三个矩形淡出</button>
+    <div id="Animation" style="width:120px;height:40px; data-role="content">
+        <button>动画</button>
+    </div>
     <br><br>
     <div id="div1" style="width:280px;height:40px;background-color:red;"></div>
     <br>
@@ -34,7 +49,10 @@
     <br><br>
 
     <div id="myDiv"><h2>Let AJAX change this text</h2></div>
-    <button id="button2">通过 AJAX 改变内容</button>
+    <div style="width:300px;height:40px; data-role="content">
+      <button id="button2" data-role="button" data-icon="plus">AJAX请求</button><br>
+    </div>
+    
 
     <!-- 关键：main.js文件不需要引用jquery.js文件，只需要在相应的html网页中引用jquery.js和main.js文件，jquery文件引用必须在main.js文件之前。这样main.js就可以使用jquery库了 -->
     <!-- jquery库下载地址：http://jquery.com/download/ -->
